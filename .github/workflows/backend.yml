@@ -15,4 +15,4 @@ jobs:
       - run: mvn -B -Dskip.frontend=true test -Dspring-boot.run.profiles=dev
       - run: mvn -B -Dskip.frontend=true clean package -Dspring-boot.run.profiles=dev
       - uses: actions/upload-artifact@v4
-        with: { name: backend-jar, path: target/*.jar }
+        with: { name: backend-jar, path: backend/target/*.jar }
