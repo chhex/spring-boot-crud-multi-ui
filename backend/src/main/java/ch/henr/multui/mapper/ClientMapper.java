@@ -1,9 +1,10 @@
 // mapper/ClientMapper.java
-package ch.henr.reactboot.mapper;
+package ch.henr.multui.mapper;
 
-import ch.henr.reactboot.dto.*;
-import ch.henr.reactboot.entity.Client;
 import org.mapstruct.*;
+
+import ch.henr.multui.dto.*;
+import ch.henr.multui.entity.Client;
 
 @Mapper(componentModel = "spring")
 public interface ClientMapper {

@@ -1,4 +1,4 @@
-package ch.henr.reactboot.entity;
+package ch.henr.multui.entity;
 
 import java.time.Instant;
 

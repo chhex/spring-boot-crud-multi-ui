@@ -1,4 +1,4 @@
-package ch.henr.reactboot.db;
+package ch.henr.multui.db;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

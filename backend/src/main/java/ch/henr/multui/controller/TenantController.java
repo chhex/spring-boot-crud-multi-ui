@@ -1,12 +1,12 @@
-package ch.henr.reactboot.controller;
+package ch.henr.multui.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.henr.reactboot.db.ClientsRepository;
-import ch.henr.reactboot.entity.Tenant;
-import ch.henr.reactboot.support.TenantHolder;
+import ch.henr.multui.db.ClientsRepository;
+import ch.henr.multui.entity.Tenant;
+import ch.henr.multui.support.TenantHolder;
 
 @RestController
 @RequestMapping(value="/api/tenantInfo", produces="application/json")

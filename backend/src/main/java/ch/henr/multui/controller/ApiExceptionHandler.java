@@ -1,4 +1,4 @@
-package ch.henr.reactboot.controller;
+package ch.henr.multui.controller;
 
 import java.util.List;
 

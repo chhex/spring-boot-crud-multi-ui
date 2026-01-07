@@ -1,15 +1,15 @@
-package ch.henr.reactboot.service;
+package ch.henr.multui.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ch.henr.reactboot.db.ClientsRepository;
-import ch.henr.reactboot.dto.ClientUpsertDto;
-import ch.henr.reactboot.entity.Client;
-import ch.henr.reactboot.mapper.ClientMapper;
-import ch.henr.reactboot.support.TenantHolder;
+import ch.henr.multui.db.ClientsRepository;
+import ch.henr.multui.dto.ClientUpsertDto;
+import ch.henr.multui.entity.Client;
+import ch.henr.multui.mapper.ClientMapper;
+import ch.henr.multui.support.TenantHolder;
 
 @Service
 public class ClientsService {

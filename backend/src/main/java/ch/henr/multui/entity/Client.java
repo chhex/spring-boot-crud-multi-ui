@@ -1,4 +1,4 @@
-package ch.henr.reactboot.entity;
+package ch.henr.multui.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

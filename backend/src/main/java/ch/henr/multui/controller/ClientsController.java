@@ -1,4 +1,4 @@
-package ch.henr.reactboot.controller;
+package ch.henr.multui.controller;
 
 
 import java.util.List;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.henr.reactboot.dto.ClientDto;
-import ch.henr.reactboot.dto.ClientUpsertDto;
-import ch.henr.reactboot.mapper.ClientMapper;
-import ch.henr.reactboot.service.ClientsService;
+import ch.henr.multui.dto.ClientDto;
+import ch.henr.multui.dto.ClientUpsertDto;
+import ch.henr.multui.mapper.ClientMapper;
+import ch.henr.multui.service.ClientsService;
 import jakarta.validation.Valid;
 
 @RestController

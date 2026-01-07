@@ -1,6 +1,6 @@
-package ch.henr.reactboot.support;
+package ch.henr.multui.support;
 
-import ch.henr.reactboot.entity.Tenant;
+import ch.henr.multui.entity.Tenant;
 
 
 public final class TenantHolder {

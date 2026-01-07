@@ -1,13 +1,14 @@
 // service/DemoSeedService.java
-package ch.henr.reactboot.service;
+package ch.henr.multui.service;
 
-import ch.henr.reactboot.entity.Client;
-import ch.henr.reactboot.entity.Tenant;
-import ch.henr.reactboot.db.ClientsRepository;
-import ch.henr.reactboot.db.TenantRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import ch.henr.multui.db.ClientsRepository;
+import ch.henr.multui.db.TenantRepository;
+import ch.henr.multui.entity.Client;
+import ch.henr.multui.entity.Tenant;
 
 import java.util.List;
 

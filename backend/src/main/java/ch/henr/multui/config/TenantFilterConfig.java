@@ -1,4 +1,4 @@
-package ch.henr.reactboot.config;
+package ch.henr.multui.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

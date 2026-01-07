@@ -1,4 +1,4 @@
-package ch.henr.reactboot.config;
+package ch.henr.multui.config;
 
 import java.io.IOException;
 import java.time.Instant;
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import ch.henr.reactboot.db.TenantRepository;
-import ch.henr.reactboot.entity.Tenant;
-import ch.henr.reactboot.service.DemoSeedService;
-import ch.henr.reactboot.support.TenantHolder;
+import ch.henr.multui.db.TenantRepository;
+import ch.henr.multui.entity.Tenant;
+import ch.henr.multui.service.DemoSeedService;
+import ch.henr.multui.support.TenantHolder;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

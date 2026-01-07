@@ -1,10 +1,10 @@
-package ch.henr.reactboot;
+package ch.henr.multui;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ReactbootApplicationTests {
+class MultuiApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package ch.henr.reactboot.db;
+package ch.henr.multui.db;
 
 import java.time.Duration;
 import java.time.Instant;
