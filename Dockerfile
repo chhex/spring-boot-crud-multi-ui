@@ -29,7 +29,7 @@ RUN mvn -q -Psingle-jar -DskipTests -Dskip.frontend=true clean package
 # ---- run stage ---------------------------------------------------------------
 FROM gcr.io/distroless/java21-debian12
 WORKDIR /app
-COPY --from=backend/build /app/target/*-SNAPSHOT.jar /app/app.jar
+COPY --from=build /app/target/*-SNAPSHOT.jar /app/app.jar
 EXPOSE 8080
 USER nonroot:nonroot
 ENTRYPOINT ["java","-jar","/app/app.jar"]
