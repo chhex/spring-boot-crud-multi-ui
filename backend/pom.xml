@@ -30,6 +30,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<skip.frontend>false</skip.frontend>
+		<frontend.directory>${project.basedir}/../frontend-react</frontend.directory>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -109,7 +110,7 @@
 
 					<!-- Vite build output -->
 					<resource>
-						<directory>${project.basedir}/frontend/dist</directory>
+						<directory>${frontend.directory}/dist</directory>
 						<filtering>false</filtering>
 						<includes>
 							<include>**/*</include>
@@ -136,7 +137,7 @@
 										<argument>install</argument>
 										<argument>--frozen-lockfile</argument>
 									</arguments>
-									<workingDirectory>${project.basedir}/frontend</workingDirectory>
+									<workingDirectory>${frontend.directory}</workingDirectory>
 								</configuration>
 							</execution>
 
@@ -153,7 +154,7 @@
 										<argument>run</argument>
 										<argument>build</argument>
 									</arguments>
-									<workingDirectory>${project.basedir}/frontend</workingDirectory>
+									<workingDirectory>${frontend.directory}</workingDirectory>
 								</configuration>
 							</execution>
 						</executions>
@@ -173,7 +174,7 @@
 									<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
 									<resources>
 										<resource>
-											<directory>${project.basedir}/frontend/dist</directory>
+											<directory>${frontend.directory}/dist</directory>
 											<filtering>false</filtering>
 											<includes>
 												<include>**/*</include>
