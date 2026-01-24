@@ -10,12 +10,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="clients",
-  uniqueConstraints = {
-    @UniqueConstraint(name="uk_clients_tenant_email", columnNames={"tenant_id","email"}),
-    @UniqueConstraint(name="uk_clients_tenant_name",  columnNames={"tenant_id","name"})
-  }
-)public class Client {
+@Table(name = "clients", uniqueConstraints = {
+    @UniqueConstraint(name = "uk_clients_tenant_email", columnNames = {"tenant_id", "email"}),
+    @UniqueConstraint(name = "uk_clients_tenant_name", columnNames = {"tenant_id", "name"})
+})
+public class Client {
     @Id
     @GeneratedValue
     private Long id;

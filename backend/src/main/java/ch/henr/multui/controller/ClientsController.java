@@ -45,12 +45,12 @@ public class ClientsController {
   @PostMapping(consumes="application/json")
   @ResponseStatus(HttpStatus.CREATED)
   public ClientDto create(@Valid @RequestBody ClientUpsertDto in) {
-    var entity = service.create(in);  // see below
+    var entity = service.create(in);
     return mapper.toDto(entity);
   }
 
   @PutMapping(value="/{id}", consumes="application/json")
-  public ClientDto update(@PathVariable Long id, @RequestBody ClientUpsertDto in) {
+  public ClientDto update(@PathVariable Long id, @Valid @RequestBody ClientUpsertDto in) {
     var entity = service.update(id, in);
     return mapper.toDto(entity);
   }

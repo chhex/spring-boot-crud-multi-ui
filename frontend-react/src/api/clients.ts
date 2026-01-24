@@ -27,22 +27,24 @@ async function requestJson<TSchema extends v.GenericSchema>(
   if (!r.ok) {
     let message = `Request failed (${r.status})`;
 
-    // Try to extract ProblemDetail detail/title from JSON
+    // Try to extract ProblemDetail detail/title from response body
     try {
-      const err: any = await r.json();
-      if (typeof err?.detail === 'string' && err.detail.trim()) {
-        message = err.detail;
-      } else if (typeof err?.title === 'string' && err.title.trim()) {
-        message = err.title;
+      const text = await r.text();
+      if (text.trim()) {
+        try {
+          const err = JSON.parse(text);
+          if (typeof err?.detail === 'string' && err.detail.trim()) {
+            message = err.detail;
+          } else if (typeof err?.title === 'string' && err.title.trim()) {
+            message = err.title;
+          }
+        } catch {
+          // Not JSON, use plain text
+          message = text;
+        }
       }
     } catch {
-      // If it's not JSON, try plain text (sometimes useful)
-      try {
-        const text = await r.text();
-        if (text.trim()) message = text;
-      } catch {
-        // ignore
-      }
+      // ignore read errors
     }
 
     throw new Error(message);

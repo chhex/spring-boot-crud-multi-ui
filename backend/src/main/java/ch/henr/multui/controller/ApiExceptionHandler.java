@@ -1,6 +1,7 @@
 package ch.henr.multui.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,14 @@ public class ApiExceptionHandler {
         return pd;
     }
 
-      public record FieldViolation(String field, String message) {}
+    public record FieldViolation(String field, String message) {}
 
+    @ExceptionHandler(NoSuchElementException.class)
+    public ProblemDetail handleNotFound(NoSuchElementException ex) {
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+        pd.setTitle("Not found");
+        pd.setDetail("The requested resource was not found");
+        pd.setProperty("code", "NOT_FOUND");
+        return pd;
+    }
 }

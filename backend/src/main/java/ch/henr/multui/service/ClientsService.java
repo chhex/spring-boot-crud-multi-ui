@@ -48,6 +48,7 @@ public class ClientsService {
 
     @Transactional
     public void delete(Long id) {
-        repo.findByTenantAndId(TenantHolder.get(), id).ifPresent(repo::delete);
+        var client = repo.findByTenantAndId(TenantHolder.get(), id).orElseThrow();
+        repo.delete(client);
     }
 }

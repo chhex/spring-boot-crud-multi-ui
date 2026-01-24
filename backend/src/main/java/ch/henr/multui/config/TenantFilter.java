@@ -23,29 +23,19 @@ import jakarta.servlet.http.HttpSession;
 @Component
 public class TenantFilter extends OncePerRequestFilter {
     private static final Logger log = LoggerFactory.getLogger(TenantFilter.class);
-    @Autowired
+
+    private static final String MDC_TENANT = "tenant";
+    private static final String MDC_PATH = "path";
+    private static final String SESSION_TENANT_TOKEN = "tenantToken";
+    private static final String SESSION_TENANT_ID = "tenantId";
+
     private final TenantRepository tenants;
-    @Autowired(required = false)
-    private final DemoSeedService demoSeed; // inject (present only in
+    private final DemoSeedService demoSeed;
 
-
-    
-    public TenantFilter() {
-        this.tenants = null;
-        this.demoSeed = null;
-    }
-
-    public TenantFilter(TenantRepository tenants) {
-        this.tenants = tenants;
-        this.demoSeed = null;
-    }
-
-    public TenantFilter(TenantRepository tenants, DemoSeedService demoSeed) {
+    public TenantFilter(TenantRepository tenants, @Autowired(required = false) DemoSeedService demoSeed) {
         this.tenants = tenants;
         this.demoSeed = demoSeed;
     }
-
-
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
@@ -54,14 +44,14 @@ public class TenantFilter extends OncePerRequestFilter {
         long t0 = System.nanoTime();
         try {
             HttpSession session = req.getSession(true);
-            String token = (String) session.getAttribute("tenantToken");
+            String token = (String) session.getAttribute(SESSION_TENANT_TOKEN);
             Tenant tenant;
             boolean created = false;
             if (token == null) {
                 token = java.util.UUID.randomUUID().toString().substring(0, 8);
                 tenant = tenants.save(new Tenant(null, token, Instant.now(), Instant.now()));
-                session.setAttribute("tenantToken", token);
-                session.setAttribute("tenantId", tenant.getId());
+                session.setAttribute(SESSION_TENANT_TOKEN, token);
+                session.setAttribute(SESSION_TENANT_ID, tenant.getId());
                 created = true;
             } else {
                 tenant = tenants.findByToken(token).orElseThrow();
@@ -72,8 +62,8 @@ public class TenantFilter extends OncePerRequestFilter {
             if (created && demoSeed != null) {
                 demoSeed.seedOnce(tenant);
             }
-            MDC.put("tenant", tenant.getToken());
-            MDC.put("path", path);
+            MDC.put(MDC_TENANT, tenant.getToken());
+            MDC.put(MDC_PATH, path);
             log.debug("Tenant resolved{}: token={}, id={}",
                     created ? " (created)" : "", tenant.getToken(), tenant.getId());
             chain.doFilter(req, res);

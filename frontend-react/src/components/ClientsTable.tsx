@@ -67,7 +67,11 @@ export function ClientsTable({ clients }: { clients: ClientType[] }) {
                   </Link>
                   <button
                     className="text-red-600 hover:text-red-700 font-medium disabled:opacity-60"
-                    onClick={() => del.mutate(c.id)}
+                    onClick={() => {
+                      if (window.confirm(`Delete client "${c.name}"?`)) {
+                        del.mutate(c.id);
+                      }
+                    }}
                     disabled={isThisDeleting}
                     title="Delete"
                   >
