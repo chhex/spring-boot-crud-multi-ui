@@ -1,4 +1,4 @@
-import { getTenantInfo} from '@/api/tenantInfo'
+import { getTenantInfo } from '@multiui/api-client'
 import { useQuery } from '@tanstack/react-query'
 
 export function TenantBadge() {

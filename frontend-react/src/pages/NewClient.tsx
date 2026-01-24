@@ -2,9 +2,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createClient } from '@/api/clients';
+import { createClient, type TenantInfo } from '@multiui/api-client';
 import { PageLayout } from '@/components/PageLayout';
-import type { TenantInfo } from '@/api/tenantInfo';
 
 type NewClientInput = { name: string; email: string };
 

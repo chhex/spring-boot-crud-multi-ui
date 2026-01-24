@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { getClient, updateClient } from '@/api/clients';
+import { getClient, updateClient } from '@multiui/api-client';
 import { PageLayout } from '@/components/PageLayout';
 
 const AVATAR_COLORS = ['bg-indigo-600', 'bg-emerald-600', 'bg-rose-600', 'bg-amber-600', 'bg-sky-600', 'bg-violet-600'];

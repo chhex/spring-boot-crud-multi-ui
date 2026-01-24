@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getClients } from '@/api/clients';
+import { getClients } from '@multiui/api-client';
 import { ClientsTable } from '@/components/ClientsTable';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/PageLayout';

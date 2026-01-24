@@ -2,8 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteClient, type Client as ClientType } from '@/api/clients';
-import type { TenantInfo } from '@/api/tenantInfo';
+import { deleteClient, type Client as ClientType, type TenantInfo } from '@multiui/api-client';
 
 
 export function ClientsTable({ clients }: { clients: ClientType[] }) {

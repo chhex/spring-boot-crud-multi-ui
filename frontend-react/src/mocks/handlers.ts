@@ -1,7 +1,6 @@
 import { delay, HttpResponse, http } from 'msw';
 import seed from './data/clients.json' with { type: 'json' };
-
-type Client = { id: number; name: string; email: string };
+import type { Client } from '@multiui/api-client';
 
 const KEY = 'mock.clients.v1';
 let nextId = 1000;
